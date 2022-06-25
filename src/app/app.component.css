@@ -1,0 +1,19 @@
+
+.mainArea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 900px;
+}
+.mainCard{
+    padding: 4rem;
+    border: 1px solid #9C9C9C;
+     background-color: #EAEAEA;
+
+}
+
+#label{
+    margin-right: 0.4rem;
+   color: #17a2b8 !important;
+   border-color:#17a2b8 !important;
+}

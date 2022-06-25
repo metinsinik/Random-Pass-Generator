@@ -1,0 +1,50 @@
+<div class="mainArea">
+  <div class="mainCard">
+    <div class="mb-3">
+      <h2 id="label">Generate Own Password</h2>
+    </div>
+    <div class="mb-3">
+      <label id="label">Password Length</label>
+      <input
+        (keypress)="keyPressNumbers($event)"
+        appAllownumbersonly
+        type="text"
+        [ngModel]="lengthOfPassword" (ngModelChange)="getLengthOfPassword($event)"
+        onfocus="if(this.flag == undefined){ this.flag = true; this.value=''; }"
+      />
+    </div>
+    <div class="mb-3">
+      <input id="label" type="checkbox" (change)="radioButtonNumberCheck()" />
+      <label id="label">Include Numbers</label>
+    </div>
+    <div class="mb-3">
+      <input id="label" type="checkbox" (change)="radioButtonSymbolCheck()" />
+      <label id="label">Include Symbols</label>
+    </div>
+    <div class="mb-3">
+      <input id="label" type="checkbox" (change)="radioButtonLetterCheck()" />
+      <label id="label">Include Letters</label>
+    </div>
+    <div class="d-grid gap-2 mb-3">
+      <button id="label"
+        [disabled]="
+          !(
+            lengthOfPassword &&
+            (radioButtonNumbersCheck ||
+              radioButtonSymbolsCheck ||
+              radioButtonLettersCheck)
+          )
+        "
+        (click)="generateUniquePassword()"
+        class="btn btn-outline-primary btn-sm"
+      >
+        Generate!
+      </button>
+    </div>
+
+    <div class="mb-3" *ngIf="password">
+      <label id="label">Generated Password</label>
+      <input [value]="password" />
+    </div>
+  </div>
+</div>
